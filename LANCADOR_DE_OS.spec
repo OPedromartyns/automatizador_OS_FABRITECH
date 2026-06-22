@@ -1,19 +1,16 @@
 # -*- mode: python ; coding: utf-8 -*-
-from PyInstaller.utils.hooks import collect_all
+from PyInstaller.utils.hooks import collect_data_files
 
 datas = []
-binaries = []
-hiddenimports = ['tkcalendar']
-tmp_ret = collect_all('selenium')
-datas += tmp_ret[0]; binaries += tmp_ret[1]; hiddenimports += tmp_ret[2]
+datas += collect_data_files('tkcalendar')
 
 
 a = Analysis(
     ['LANCADOR_DE_OS.py'],
     pathex=[],
-    binaries=binaries,
+    binaries=[],
     datas=datas,
-    hiddenimports=hiddenimports,
+    hiddenimports=['selenium.webdriver.chrome.webdriver', 'selenium.webdriver.chrome.options'],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
