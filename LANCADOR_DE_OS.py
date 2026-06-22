@@ -24,8 +24,6 @@ SENHA = os.getenv("SENHA")
 URL = os.getenv("URL")
 DIAS_PRESENCIAIS = tuple(map(int, os.getenv("DIAS_PRESENCIAIS").split(",")))
 
-
-
 # ==========================
 # CALENDARIO
 # ==========================
@@ -214,7 +212,7 @@ def rodar_automacao():
             entrada = escolher_data()
 
             if entrada is None:
-                print("Encerrado pelo usuário (Calendário fechado ou cancelado).")
+                print("Encerrado pelo usuario (Calendario fechado ou cancelado).")
                 break
 
             print(f"[5] Data escolhida {entrada}")
@@ -399,7 +397,7 @@ def rodar_automacao():
             time.sleep(3)
 
     except Exception as e:
-        print(f"Erro durante a execução: {e}")
+        print(f"Erro durante a execucao: {e}")
 
 
 if __name__=="__main__":
