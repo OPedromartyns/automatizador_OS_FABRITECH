@@ -75,7 +75,7 @@ def escolher_data():
 
 
 # ==========================
-# ITEM OS
+# ITEM da OS
 # ==========================
 
 def preencher_item(driver, wait, num, inicio, fim, desc):
@@ -220,7 +220,7 @@ def rodar_automacao():
             # Garante que voltou para a tela de agendas se tiver saído dela no loop anterior
             if "agendas" not in driver.current_url.lower():
                 # Se o sistema não voltar sozinho após salvar, força a volta clicando no menu lateral/card correspondente
-                # (Ajuste o seletor abaixo se houver um botão de voltar ou menu lateral específico)
+                
                 driver.get(URL) # Uma alternativa segura é recarregar a URL base ou ir direto para a página de filtros
                 wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,"a.quick-card.operacional"))).click()
 
