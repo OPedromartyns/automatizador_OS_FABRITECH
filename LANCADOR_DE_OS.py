@@ -79,23 +79,44 @@ def preencher_item(driver, wait, num, inicio, fim, desc):
 
 
 # ==========================
-# AUTOMAÇÃO
+# AUTOMACAO
 # ==========================
+
+
 def rodar_automacao():
+
+
     options = Options()
-    options.add_experimental_option("detach", True)
-    options.add_experimental_option("excludeSwitches", ["enable-logging"])
+
+    options.add_experimental_option(
+        "detach",
+        True
+    )
+
+    options.add_experimental_option(
+        "excludeSwitches",
+        ["enable-logging"]
+    )
+
+    # LINHA ADICIONADA AQUI PARA FORÇAR O ZOOM EM 100%:
+    options.add_argument("--force-device-scale-factor=1")
+
 
     driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()),
+        service=Service(
+            ChromeDriverManager().install()
+        ),
         options=options
     )
-    wait = WebDriverWait(driver, 15) # 15 segundos costuma ser o sweet spot de timeout
+
+
+    wait = WebDriverWait(driver,20)
 
     try:
         driver.get(URL)
         driver.maximize_window()
-        print("[1] Página aberta")
+
+        print("[1] Pagina aberta")
 
         # LOGIN
         wait.until(EC.presence_of_element_located((By.ID, "id_username"))).send_keys(USUARIO)
